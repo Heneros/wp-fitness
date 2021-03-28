@@ -57,35 +57,15 @@
               <?php
               endforeach;
               ?>
-              <!-- <li class="active">
-                <a href="trainers.html">Тренеры</a>
-              </li>
-              <li>
-                <a href="schedule.html">Расписание</a>
-              </li>
-              <li>
-                <a href="prices.html">Цены</a>
-              </li>
-              <li>
-                <a href="contacts.html">Контакты </a>
-              </li> -->
             </ul>
           </nav>
           <?php
-        // wp_nav_menu([
-        //   'theme_location' => 'menu-footer',
-        //   'container' => 'nav',
-        //   'container_class' => 'main-navigation',
-        //   'menu_class' => 'main-navigation__list',
-        //   'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-
-        // ]);
-
         ?>
-          <address class="main-header__widget widget-contacts">
-            <a href="tel:88007003030" class="widget-contacts__phone"> 8 800 700 30 30 </a>
-            <p class="widget-contacts__address"> ул. Шевченко 11 </p>
-          </address>
+      <?php
+        if(is_active_sidebar('si-footer')){
+          dynamic_sidebar('si-footer');
+        }
+        ?>
         </div>
       </header>
       <footer class="main-footer wrapper">
@@ -101,9 +81,15 @@
              </span>
           </div>
           <div class="main-footer__widget">
-            <p class="widget-contact-mail"> Если у вас возникли вопросы, пожалуйста свяжитесь с нами по почте <a href="mailto:sportfaza@gmail.ru">sportfaza@gmail.ru</a>
+            <p class="widget-contact-mail"> 
+            <?php
+            if(is_active_sidebar('si-footer-column-2')){
+              dynamic_sidebar('si-footer-column-2');
+            }
+            ?>
             </p>
           </div>
+
           <div class="main-footer__widget main-footer__widget_social">
             <a target="_blank" href="#" class="widget-social-links fb">
               <span class="sr-only"> Мы в Facebook! </span>
