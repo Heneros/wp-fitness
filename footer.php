@@ -59,8 +59,7 @@
               ?>
             </ul>
           </nav>
-          <?php
-        ?>
+  
       <?php
         if(is_active_sidebar('si-footer')){
           dynamic_sidebar('si-footer');
@@ -77,7 +76,6 @@
               dynamic_sidebar('si-footer-column-1');
             }
             ?>
-            
              </span>
           </div>
           <div class="main-footer__widget">
@@ -89,9 +87,9 @@
             ?>
             </p>
           </div>
-
           <div class="main-footer__widget main-footer__widget_social">
           <?php
+           
             if(is_active_sidebar('si-footer-column-3')){
               dynamic_sidebar('si-footer-column-3');
             }

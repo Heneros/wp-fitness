@@ -285,11 +285,14 @@ class SI_Widget_Social_Links extends WP_Widget{
         $text =  $this->socials[$slug][0];
         $svg = $this->socials[$slug][1];
         ?>
-             <a target="_blank" 
+             <a 
+             target="_blank" 
              href="<?php echo $link; ?>" 
-             class="widget-social-links <?php echo $slug; ?>">
-              <span class="sr-only"> Мы в <?php echo $text;?> </span>
+             class="widget-social-links 
+             <?php echo $slug; ?> " >
+<span class="sr-only"> Мы в <?php echo $text;?> </span>
               <?php echo $svg; ?>
+             </a>
         <?php
     }
 
