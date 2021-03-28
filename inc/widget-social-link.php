@@ -1,8 +1,7 @@
 <?php
 
 class SI_Widget_Social_Links extends WP_Widget{
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct(
             'SI_Widget_Social_Links', 
             'Sportisland - Социальные ссылки ', 
