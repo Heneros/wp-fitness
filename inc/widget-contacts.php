@@ -4,9 +4,9 @@ class SI_Widget_Contacts extends WP_Widget{
     public function __construct(){
         parent::__construct(
             'SI_Widget_contacts', 
-            'Sportfaza - text contacts', 
+            'Sportisland - text contacts', 
         [
-            'name' => 'Sportfaza - text contacts',
+            'name' => 'Sportisland - text contacts',
             'description' => 'Output number and address'
 
 

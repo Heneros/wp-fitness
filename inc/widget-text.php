@@ -3,9 +3,9 @@
 class SI_Widget_Text extends WP_Widget{
     public function __construct()
     {
-        parent::__construct('SI_Widget_Text', 'Sportfaza - text widget ', 
+        parent::__construct('SI_Widget_Text', 'Sportisland - text widget ', 
         [
-            'name' => 'Sportfaza - text widget',
+            'name' => 'Sportisland - text widget',
             'description' => 'Output text without css'
 
 
