@@ -32,10 +32,11 @@ get_header();
             ?>
           </div>
           <p class="contacts__info">
-            <span class="widget-address"> г. Киев, ул. Шевеченко 11 </span>
-            <span class="widget-working-time"> Работаем с 09:00 до 20:00 </span>
-            <a href="tel:88007003030" class="widget-phone"> 8 800 700 30 30 </a>
-            <a href="mailto:sportisland@gmail.ru" class="widget-email">sportisland@gmail.ru</a>
+          <?php
+            if(is_active_sidebar('si-after-map')){
+              dynamic_sidebar('si-after-map');
+            }
+            ?>
           </p>
           <h2 class="page-heading contacts__h_form"> форма </h2>
           <form action="#" class="contacts__form contacts-form">
