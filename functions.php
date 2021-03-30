@@ -15,6 +15,7 @@ foreach($widgets as $w){
 add_action('after_setup_theme', 'si_setup');
 add_action('wp_enqueue_scripts', 'si_scripts');
 add_action('widgets_init', 'si_register');
+add_action('init', 'si_registration_types');
 add_shortcode('si-paste-link', 'si_paste_link');
 
 // add_filter('show_admin_bar', '__return_false');
@@ -115,6 +116,31 @@ function si_paste_link($attr){
   }else{
       return '';
   }
+}
+function si_registration_types(){
+    register_post_type( 'services', [
+        'labels' => [
+            'name'               => 'Услуги', 
+            'singular_name'      => 'Услуга', 
+            'add_new'            => 'Добавить новую услугу',
+            'add_new_item'       => 'Добавить новую услугу',
+            'edit_item'          => 'Редактировать услугу', 
+            'new_item'           => 'Новая услуга', 
+            'view_item'          => 'Смотреть услуги',
+            'search_items'       => 'Искать услуги',
+            'not_found'          => 'Не найдено',
+            'not_found_in_trash' => 'Не найдено в корзине', 
+            'parent_item_colon'  => '', 
+            'menu_name'          => 'Услуги', 
+        ],
+        'public'              => true,
+        'menu_position'       => 20,
+        'menu_icon'           =>'dashicons-smiley', 
+        'hierarchical'        => false,
+        'supports'            => ['title', 'editor', 'thumbnail'],
+        'has_archive' => true
+    ]);
+
 }
 
 ?>

@@ -42,35 +42,33 @@ if(is_home() ):
       </section>
       <?php
       else:
-      ?>
-      <?php get_template_part('tmp/no-posts');?>
-    <?php endif; ?>
+     get_template_part('tmp/no-posts');
+       endif;
+         $cats = get_categories();
+         if($cats):
+    ?>
     
       <section class="categories">
         <div class="wrapper">
           <h2 class="categories__h main-heading"> категории </h2>
           <ul class="categories-list">
+          <?php 
+          foreach($cats as $cat):
+            $cat_link = get_category_link($cat->cat_ID);
+            ?>
             <li class="category">
-              <a href="category.html" class="category__link">
-                <img src="img/blog__category_thmb1.jpg" alt="" class="category__thumb">
-                <span class="category__name">Груповые занятия</span>
+              <a href="<?php echo $cat_link; ?>" class="category__link">
+                <img src="<?php echo _si_assets_path('img/blog__category_thmb1.jpg'); ?>" alt="" class="category__thumb">
+                <span class="category__name">
+                 <?php echo $cat->name; ?>
+                </span>
               </a>
             </li>
-            <li class="category">
-              <a href="category.html" class="category__link">
-                <img src="img/blog__category_thmb2.jpg" alt="" class="category__thumb">
-                <span class="category__name">Кардио</span>
-              </a>
-            </li>
-            <li class="category">
-              <a href="category.html" class="category__link">
-                <img src="img/blog__category_thmb3.jpg" alt="" class="category__thumb">
-                <span class="category__name">Йога</span>
-              </a>
-            </li>
+            <?php endforeach; ?>
           </ul>
         </div>
       </section>
+      <?php endif;?>
     </main>
 <?php
 // else:
@@ -115,7 +113,9 @@ if(have_posts()):
       <?php
       else:
       get_template_part('tmp/no-posts');
-     endif; ?>
+     endif; 
+
+     ?>
    
     </main>
 <?php

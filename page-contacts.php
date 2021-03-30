@@ -11,6 +11,7 @@ get_header();
       </div>
       <section class="contacts">
         <?php
+        if(have_posts()):
         while(have_posts()):
           the_post();
         ?>
@@ -61,7 +62,10 @@ get_header();
             <button class="contacts-form__btn btn"> Отправить </button>
           </form>
         </div>
-        <?php endwhile; ?>
+        <?php 
+       endwhile;
+      endif;
+       ?>
       </section>
     </main>
 
