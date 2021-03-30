@@ -7,21 +7,20 @@ get_header();
 ?>
     <main class="main-content">
       <div class="wrapper">
-        <ul class="breadcrumbs">
-          <li class="breadcrumbs__item breadcrumbs__item_home">
-            <a href="index.html" class="breadcrumbs__link">Главная</a>
-          </li>
-          <li class="breadcrumbs__item">
-            <a href="contacts.html" class="breadcrumbs__link">Контакты</a>
-          </li>
-        </ul>
+      <?php get_template_part('tmp/breadcrumbs');?>
       </div>
       <section class="contacts">
+        <?php
+        while(have_posts()):
+          the_post();
+        ?>
         <div class="wrapper">
-          <h1 class="contacts__h main-heading">Контакты</h1>
+          <h1 class="contacts__h main-heading"><?php 
+          the_title();
+          ?></h1>
           <div class="map">
             <a href="#" class="map__fallback">
-              <img src="<?php echo _si_assets_path('/img/map.jpg'); ?>" alt="Карта клуба SportIsland">
+              <img src="<?php echo _si_assets_path('/img/map.jpg'); ?>" alt="Карта клуба Sportfaza">
               <span class="sr-only"> Карта </span>
             </a>
 
@@ -38,7 +37,10 @@ get_header();
             }
             ?>
           </p>
-          <h2 class="page-heading contacts__h_form"> форма </h2>
+          <?php
+          the_content();
+          
+          ?>
           <form action="#" class="contacts__form contacts-form">
             <label class="contacts-form__label">
               <span class="sr-only"> Имя </span>
@@ -59,6 +61,7 @@ get_header();
             <button class="contacts-form__btn btn"> Отправить </button>
           </form>
         </div>
+        <?php endwhile; ?>
       </section>
     </main>
 
