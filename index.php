@@ -7,7 +7,7 @@ if(is_home() ):
 ?>
 
     <main class="main-content">
-      <h1 class="sr-only">Страница на сайте спорт-клуба SportIsland</h1>
+      <h1 class="sr-only">Страница на сайте спорт-клуба Sportfaza</h1>
       <div class="wrapper">
         <?php get_template_part('tmp/breadcrumbs');?>
       </div>

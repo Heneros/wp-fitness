@@ -4,9 +4,9 @@ class SI_Widget_Social_Links extends WP_Widget{
     public function __construct(){
         parent::__construct(
             'SI_Widget_Social_Links', 
-            'Sportisland - Социальные ссылки ', 
+            'Sportfaza - Социальные ссылки ', 
         [
-            'name' => 'Sportisland - social links widget',
+            'name' => 'Sportfaza - social links widget',
             'description' => 'Output links on social networks'
 
 

@@ -3,9 +3,9 @@
 class SI_Widget_Iframe extends WP_Widget{
     public function __construct()
     {
-        parent::__construct('SI_Widget_Iframe', 'Sportisland - Iframe ', 
+        parent::__construct('SI_Widget_Iframe', 'Sportfaza - Iframe ', 
         [
-            'name' => 'Sportisland - iframe',
+            'name' => 'Sportfaza - iframe',
             'description' => 'Output iframe map'
 
 

@@ -17,7 +17,7 @@ get_header();
         <ul class="services-list">
           <li class="services-list__item service">
             <h2 class="service__name main-heading"> ТРЕНАЖЕРНЫЙ ЗАЛ </h2>
-            <p class="service__text"> Спорт клуб в Москве «SportIsland» является современным фитнес клубом по проведению тренировок различной направленности и стиля. В тренажерном зале можно развивать силы своего организма и укреплять здоровье. </p>
+            <p class="service__text"> Спорт клуб в Москве «Sportfaza» является современным фитнес клубом по проведению тренировок различной направленности и стиля. В тренажерном зале можно развивать силы своего организма и укреплять здоровье. </p>
             <p class="service__action">
               <a href="#" class="service__subscribe btn">записаться</a>
               <strong class="service__price price"> 1200 <span class="price__unit">р./мес.</span>
@@ -29,7 +29,7 @@ get_header();
           </li>
           <li class="services-list__item service">
             <h2 class="service__name main-heading"> ЖЕНСКИЙ ФИТНЕС </h2>
-            <p class="service__text"> В клубе «SportIsland» вам предложат фитнес программы различных направлений и уровней подготовленности: как для новичков, так и для опытных атлетов. Поставьте себе цель и опытные тренеры приведут вас к телу вашей мечты! </p>
+            <p class="service__text"> В клубе «Sportfaza» вам предложат фитнес программы различных направлений и уровней подготовленности: как для новичков, так и для опытных атлетов. Поставьте себе цель и опытные тренеры приведут вас к телу вашей мечты! </p>
             <p class="service__action">
               <a href="#" class="service__subscribe btn">записаться</a>
               <strong class="service__price price"> 2200 <span class="price__unit">р./мес.</span>

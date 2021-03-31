@@ -16,6 +16,7 @@ add_action('after_setup_theme', 'si_setup');
 add_action('wp_enqueue_scripts', 'si_scripts');
 add_action('widgets_init', 'si_register');
 add_action('init', 'si_registration_types');
+add_action('add_meta_boxes', 'si_meta_boxes');
 add_shortcode('si-paste-link', 'si_paste_link');
 
 // add_filter('show_admin_bar', '__return_false');
@@ -140,7 +141,141 @@ function si_registration_types(){
         'supports'            => ['title', 'editor', 'thumbnail'],
         'has_archive' => true
     ]);
-
+    register_post_type( 'trainers', [
+        'labels' => [
+            'name'               => 'Тренеры', 
+            'singular_name'      => 'Тренер', 
+            'add_new'            => 'Добавить нового Тренера',
+            'add_new_item'       => 'Добавить нового Тренера',
+            'edit_item'          => 'Редактировать Тренера', 
+            'new_item'           => 'Новый Тренер', 
+            'view_item'          => 'Смотреть Тренеры',
+            'search_items'       => 'Искать Тренеры',
+            'not_found'          => 'Не найдено',
+            'not_found_in_trash' => 'Не найдено в корзине', 
+            'parent_item_colon'  => '', 
+            'menu_name'          => 'Тренеры', 
+        ],
+        'public'              => true,
+        'menu_position'       => 20,
+        'menu_icon'           =>'dashicons-groups', 
+        'hierarchical'        => false,
+        'supports'            => ['title', 'editor', 'thumbnail'],
+        'has_archive' => true
+    ]);
+    register_post_type( 'schedule', [
+        'labels' => [
+            'name'               => 'Занятия',  
+            'singular_name'      => 'Занятия', 
+            'add_new'            => 'Добавить новый График',
+            'add_new_item'       => 'Добавить новый График',
+            'edit_item'          => 'Редактировать График', 
+            'new_item'           => 'Новый График', 
+            'view_item'          => 'Смотреть График',
+            'search_items'       => 'Искать График',
+            'not_found'          => 'Не найдено',
+            'not_found_in_trash' => 'Не найдено в корзине', 
+            'parent_item_colon'  => '', 
+            'menu_name'          => 'Занятия', 
+        ],
+        'public'              => true,
+        'menu_position'       => 20,
+        'menu_icon'           =>'dashicons-text-page', 
+        'hierarchical'        => false,
+        'supports'            => ['title', 'editor', 'thumbnail'],
+        'has_archive' => true
+    ]);
+    register_post_type( 'prices', [
+        'labels' => [
+            'name'               => 'Прайсы', 
+            'singular_name'      => 'Прайсы', 
+            'add_new'            => 'Добавить новый Прайс',
+            'add_new_item'       => 'Добавить новый Прайс',
+            'edit_item'          => 'Редактировать Прайс', 
+            'new_item'           => 'Новый Прайс', 
+            'view_item'          => 'Смотреть Прайс',
+            'search_items'       => 'Искать Прайс',
+            'not_found'          => 'Не найдено',
+            'not_found_in_trash' => 'Не найдено в корзине', 
+            'parent_item_colon'  => '', 
+            'menu_name'          => 'Прайс', 
+        ],
+        'public'              => true,
+        'menu_position'       => 20,
+        'menu_icon'           =>'dashicons-text-page', 
+        'hierarchical'        => false,
+        'supports'            => ['title', 'editor', 'thumbnail'],
+        'has_archive' => true
+    ]);
+    register_post_type( 'cards', [
+        'labels' => [
+            'name'               => 'Клубные Карты', 
+            'singular_name'      => 'Клубные Карты', 
+            'add_new'            => 'Добавить новый Карту',
+            'add_new_item'       => 'Добавить новый Карту',
+            'edit_item'          => 'Редактировать Карту', 
+            'new_item'           => 'Новый Карта', 
+            'view_item'          => 'Смотреть Карта',
+            'search_items'       => 'Искать Карта',
+            'not_found'          => 'Не найдено',
+            'not_found_in_trash' => 'Не найдено в корзине', 
+            'parent_item_colon'  => '', 
+            'menu_name'          => 'Клубные Карта', 
+        ],
+        'public'              => true,
+        'menu_position'       => 20,
+        'menu_icon'           =>'dashicons-tickets-alt', 
+        'hierarchical'        => false,
+        'supports'            => ['title', 'editor', 'thumbnail'],
+        'has_archive' => false
+    ]);
+    register_taxonomy('schedule_days', ['schedule'], [
+        'labels'                => [
+            'name'              => 'Дни недели',
+            'singular_name'     => 'День',
+            'search_items'      => 'Найти день недели',
+            'all_items'         => 'Все дни недели',
+            'view_item '        => 'Посмотреть дни недели',
+            'edit_item'         => 'Редактировать дни недели',
+            'update_item'       => 'Обновить',
+            'add_new_item'      => 'Добавить день недели',
+            'new_item_name'     => 'Добавить день недели',
+            'menu_name'         => 'Все дни недели',
+        ],
+        'description'           => '',
+        'public'                => true,
+        'hierarchical'          => true
+    ]);
+    register_taxonomy('places', ['schedule'], [
+        'labels'                => [
+            'name'              => 'Залы',
+            'singular_name'     => 'Залы',
+            'search_items'      => 'Найти  залы',
+            'all_items'         => 'Все залы',
+            'view_item '        => 'Посмотреть залы',
+            'edit_item'         => 'Редактировать залы',
+            'update_item'       => 'Обновить',
+            'add_new_item'      => 'Добавить залы',
+            'new_item_name'     => 'Добавить залы',
+            'menu_name'         => 'Все залы',
+        ],
+        'description'           => '',
+        'public'                => true,
+        'hierarchical'          => true
+    ]);
 }
-
+function si_meta_boxes(){
+    add_meta_box(
+        'si-like',
+        'Количество лайков: ',
+        'si_meta_like_cb',
+        'post'
+    );
+}
+function si_meta_like_cb($post_obj){
+    $likes = get_post_meta($post_obj->ID, 'si-like', true);
+    $likes = $likes ? $likes: 0;
+    
+    // echo '<p>' . $likes  . '</p>';
+}
 ?>
