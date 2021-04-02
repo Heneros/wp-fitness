@@ -17,6 +17,8 @@ add_action('wp_enqueue_scripts', 'si_scripts');
 add_action('widgets_init', 'si_register');
 add_action('init', 'si_registration_types');
 add_action('add_meta_boxes', 'si_meta_boxes');
+add_action('save_post', 'si_like_save_meta');
+
 add_shortcode('si-paste-link', 'si_paste_link');
 
 // add_filter('show_admin_bar', '__return_false');
@@ -138,7 +140,7 @@ function si_registration_types(){
         'menu_position'       => 20,
         'menu_icon'           =>'dashicons-smiley', 
         'hierarchical'        => false,
-        'supports'            => ['title', 'editor', 'thumbnail'],
+        'supports'            => ['title'],
         'has_archive' => true
     ]);
     register_post_type( 'trainers', [
@@ -160,7 +162,7 @@ function si_registration_types(){
         'menu_position'       => 20,
         'menu_icon'           =>'dashicons-groups', 
         'hierarchical'        => false,
-        'supports'            => ['title', 'editor', 'thumbnail'],
+        'supports'            => ['title'],
         'has_archive' => true
     ]);
     register_post_type( 'schedule', [
@@ -182,7 +184,7 @@ function si_registration_types(){
         'menu_position'       => 20,
         'menu_icon'           =>'dashicons-text-page', 
         'hierarchical'        => false,
-        'supports'            => ['title', 'editor', 'thumbnail'],
+        'supports'            => ['title'],
         'has_archive' => true
     ]);
     register_post_type( 'prices', [
@@ -204,7 +206,7 @@ function si_registration_types(){
         'menu_position'       => 20,
         'menu_icon'           =>'dashicons-text-page', 
         'hierarchical'        => false,
-        'supports'            => ['title', 'editor', 'thumbnail'],
+        'supports'            => ['title'],
         'has_archive' => true
     ]);
     register_post_type( 'cards', [
@@ -214,19 +216,19 @@ function si_registration_types(){
             'add_new'            => 'Добавить новый Карту',
             'add_new_item'       => 'Добавить новый Карту',
             'edit_item'          => 'Редактировать Карту', 
-            'new_item'           => 'Новый Карта', 
-            'view_item'          => 'Смотреть Карта',
+            'new_item'           => 'Новый Картf', 
+            'view_item'          => 'Смотреть Картe',
             'search_items'       => 'Искать Карта',
             'not_found'          => 'Не найдено',
             'not_found_in_trash' => 'Не найдено в корзине', 
             'parent_item_colon'  => '', 
-            'menu_name'          => 'Клубные Карта', 
+            'menu_name'          => 'Клубные Картs', 
         ],
         'public'              => true,
         'menu_position'       => 20,
         'menu_icon'           =>'dashicons-tickets-alt', 
         'hierarchical'        => false,
-        'supports'            => ['title', 'editor', 'thumbnail'],
+        'supports'            => ['title'],
         'has_archive' => false
     ]);
     register_taxonomy('schedule_days', ['schedule'], [
@@ -275,7 +277,13 @@ function si_meta_boxes(){
 function si_meta_like_cb($post_obj){
     $likes = get_post_meta($post_obj->ID, 'si-like', true);
     $likes = $likes ? $likes: 0;
-    
+    echo "<input type=\"text\"  name=\"si-like\" value=\"${likes}\">";
     // echo '<p>' . $likes  . '</p>';
+}
+
+function si_like_save_meta($post_id){
+   if(isset($_POST['si-like'])){
+       update_post_meta($post_id, 'si-like', $_POST['si-like']);
+   }
 }
 ?>
