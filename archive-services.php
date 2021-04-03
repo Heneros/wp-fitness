@@ -30,11 +30,12 @@ get_header();
             </figure>
           </li>
           <?php endwhile; 
-             else:
+          ?>
+        </ul>
+        <?php    else:
               get_template_part('tmp/no-posts');
              endif;
           ?>
-        </ul>
       </div>
     </main>
 

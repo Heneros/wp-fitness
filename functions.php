@@ -265,7 +265,27 @@ function si_registration_types(){
         'public'                => true,
         'hierarchical'          => true
     ]);
+    register_taxonomy('method', ['schedule'], [
+        'labels'                => [
+            'name'              => 'Методы тренировок',
+            'singular_name'     => 'Методы тренировок',
+            'search_items'      => 'Найти  методы тренировок',
+            'all_items'         => 'Все методы тренировок',
+            'view_item '        => 'Посмотреть залы',
+            'edit_item'         => 'Редактировать методы тренировок',
+            'update_item'       => 'Обновить',
+            'add_new_item'      => 'Добавить методы тренировок',
+            'new_item_name'     => 'Добавить методы тренировок',
+            'menu_name'         => 'Методы тренировок',
+        ],
+        'description'           => '',
+        'public'                => true,
+        'hierarchical'          => true,
+        'show_admin_column'     => false
+    ]);
 }
+
+
 function si_meta_boxes(){
     add_meta_box(
         'si-like',
@@ -286,4 +306,5 @@ function si_like_save_meta($post_id){
        update_post_meta($post_id, 'si-like', $_POST['si-like']);
    }
 }
+
 ?>
