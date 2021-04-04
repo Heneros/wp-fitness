@@ -4,7 +4,11 @@
           <button class="modal__closer">
             <span class="sr-only">Закрыть</span>
           </button>
-          <form action="#" class="modal-form__form">
+          <form 
+          method="POST"
+          action="<?php echo esc_url(admin_url('admin-post.php')); ?>"
+          class="modal-form__form"
+           >
             <h2 class="modal-content__h"> Отправить заявку </h2>
             <p> Оставьте свои контакты и менеджер с Вами свяжется </p>
             <p>
@@ -20,6 +24,7 @@
               </label>
             </p>
             <button class="btn" type="submit">Отправить</button>
+            
             <input type="hidden" name="action" value="si-modal-form">
           </form>
         </section>

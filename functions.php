@@ -19,6 +19,8 @@ add_action('init', 'si_registration_types');
 add_action('add_meta_boxes', 'si_meta_boxes');
 add_action('save_post', 'si_like_save_meta');
 add_action('admin_init', 'si_register_my_slogan');
+add_action('admin_post_nopriv_si-modal-form', 'si_modal_form_handler');
+add_action('admin_post_si-modal-form', 'si_modal_form_handler');
 
 add_shortcode('si-paste-link', 'si_paste_link');
 
@@ -336,4 +338,9 @@ function si_option_slogan_cb($args){
     >
     <?php
 }
+
+function si_modal_form_handler(){
+  header('Location: ' . home_url());
+}
 ?>
+
