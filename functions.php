@@ -26,6 +26,9 @@ add_action('wp_ajax_post-likes', 'si_likes');
 
 add_shortcode('si-paste-link', 'si_paste_link');
 
+add_action('manage_posts_custom_column', 'si_like_column', 5, 2);
+add_filter('manage_posts_columns', 'si_add_col_likes');
+
 // add_filter('show_admin_bar', '__return_false');
 add_filter('si_widget_text', 'do_shortcode');
 function si_setup(){
@@ -364,6 +367,20 @@ function si_likes(){
         wp_die('Лайк не сохранился', 500);
     }
   
+}
+
+function si_like_column($col_name, $id){
+  if($col_name !== 'col_likes') return;
+    $likes = get_post_meta($id, 'si-like', true);
+    echo $likes ? $likes : 0;
+}
+function si_add_col_likes($defaults){
+   $type = get_current_screen();
+   if($type->post_type === 'post'){
+    $defaults['col_likes'] = 'Лайки';
+   }
+   return $defaults;
+
 }
 ?>
 
