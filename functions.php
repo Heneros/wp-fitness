@@ -22,6 +22,9 @@ add_action('admin_init', 'si_register_my_slogan');
 add_action('admin_post_nopriv_si-modal-form', 'si_modal_form_handler');
 add_action('admin_post_si-modal-form', 'si_modal_form_handler');
 
+add_action('admin_ajax_nopriv_post-lokes', 'si_likes');
+add_action('admin_ajax_post-likes', 'si_likes');
+
 add_shortcode('si-paste-link', 'si_paste_link');
 
 // add_filter('show_admin_bar', '__return_false');
@@ -341,6 +344,11 @@ function si_option_slogan_cb($args){
 
 function si_modal_form_handler(){
   header('Location: ' . home_url());
+}
+
+function si_likes(){
+    echo 'Everything works!';
+    wp_die();
 }
 ?>
 

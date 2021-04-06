@@ -30,7 +30,6 @@
           'container_class' => 'main-navigation',
           'menu_class' => 'main-navigation__list',
           'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-
         ]);
         ?>
         <?php
