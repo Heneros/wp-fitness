@@ -32,11 +32,9 @@ get_header();
            <button 
            class="main-article__like like"
            style="background-color: transparent; border: none; font-size:inherit; cursor: pointer;"
-           data-href="<?php esc_url(admin_url('admin-ajax.php'));?>"
+           data-href="<?php echo esc_url(admin_url('admin-ajax.php'));?>"
            data-id="<?php echo $id; ?>"
            >
-           <script>
-           </script>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 51.997 51.997" style="enable-background:new 0 0 51.997 51.997;" xml:space="preserve">
               <style> path{
                                               fill: #666;
@@ -92,7 +90,6 @@ get_header();
                try{
                if(!localStorage.getItem('liked')){
                 localStorage.setItem('liked', '');
-
                }
               }catch(e){
                 console.log(e);
@@ -118,7 +115,41 @@ get_header();
                  let hasLike = getAboutLike(postId);
                  const data = new FormData();
                  data.append('action', 'post-likes');
-               })
+                 let todo = hasLike ? 'minus' : 'plus';
+                 data.append('todo', todo);
+                 data.append('id', postId);
+                 const xhr = new XMLHttpRequest();
+                 xhr.open('POST', likeBtn.getAttribute('data-href'));
+                 xhr.send(data);
+                 likeBtn.disabled = true;
+                 xhr.addEventListener('readystatechange', function(){
+                   if(xhr.readyState !==  4) return;
+                   if(xhr.status === 200){
+                     likeBtn.querySelector('.like__count').innerHTML = xhr.responseText;
+                     let localData = localStorage.getItem('liked');
+                     let newData = '';
+                     if(hasLike){
+                       newData = localData.split(',')
+                       .filter(function(id){
+                         return id !== postId
+                       })
+                       .join(',');
+                     }else{
+                       newData = localData.split(',')
+                       .filter(function(id){
+                         return id !== '';
+                       })
+                       .concat(postId)
+                       .join(',');
+                     }
+                     localStorage.setItem('liked', newData);
+                     likeBtn.classList.toggle('like_liked');
+                   }else {
+                     console.log(xhr.statusText);
+                   }
+                   likeBtn.disabled = false;
+                 });
+                })
              });
              </script>
         </footer>
