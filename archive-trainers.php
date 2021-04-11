@@ -26,7 +26,7 @@ get_header();
                   <h2 class="trainer__name"> <?php the_title();?> </h2>
                   <p class="trainer__text"> <?php the_field('trainer_description');?> </p>
                 </div>
-                <a href="#" class="trainer__subscribe btn">записаться</a>
+                <a data-post-id="<?php echo $id; ?>" class="trainer__subscribe btn btn_modal "  href="#modal-form">записаться</a>
               </article>
             </li>
        
