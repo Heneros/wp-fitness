@@ -6,7 +6,7 @@ get_header();
   <main class="main-content">
       <h1 class="sr-only">Услуги</h1>
       <div class="wrapper">
-      <?php get_template_part('tmp/breadcrumbs');?>
+      <?php get_template_part('tmp/breadcrumbs');?> 
         <?php
       if(have_posts()):
       ?>

@@ -14,13 +14,8 @@
   </head>
   <?php 
   
-  $body_class = '';
-  if(!is_front_page()){
-    $body_class = 'inner';
-  }
-  
   ?>
-  <body>
+  <body class="inner">
     <header class="main-header">
       <div class="wrapper main-header__wrap">
         <?php the_custom_logo();?>

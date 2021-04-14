@@ -4,7 +4,7 @@ get_header();
 
 ?>
     <main class="main-content">
-      <div class="wrapper">
+
       <div class="wrapper">
       <?php get_template_part('tmp/breadcrumbs');?>
       </div>

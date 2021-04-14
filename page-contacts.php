@@ -16,6 +16,7 @@ get_header();
           the_post();
         ?>
         <div class="wrapper">
+
           <h1 class="contacts__h main-heading"><?php 
           the_title();
           ?></h1>
