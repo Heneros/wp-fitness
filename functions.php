@@ -214,7 +214,8 @@ function si_registration_types(){
         'menu_position'       => 20,
         'menu_icon'           =>'dashicons-text-page', 
         'hierarchical'        => false,
-        'supports'            => ['title'],
+        'show_in_rest'        => true,
+        'supports'            => ['title', 'editor'],
         'has_archive' => true
     ]);
     register_post_type( 'cards', [

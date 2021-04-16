@@ -16,7 +16,15 @@ get_header();
       <article class="main-article wrapper">
         <header class="main-article__header">
           <?php 
-          the_post_thumbnail('full', ['class' => 'main-article__thumb']);
+          $custom_thumb = get_field('post_si_thumb');
+          if(get_field('post_si_thumb')){
+            $url = $custom_thumb['url'];
+            $alt = $custom_thumb['alt'];
+            echo "<img src=\"$url\" alt=\"$alt\" class=\"main-article__thumb\">";
+
+          }else{
+            the_post_thumbnail('full', ['class' => 'main-article__thumb']);
+          }
           ?>
           <h1 class="main-article__h">
             <?php
